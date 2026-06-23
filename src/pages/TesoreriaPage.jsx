@@ -374,26 +374,21 @@ export default function TesoreriaPage() {
         </Table>
       )}
 
-      {modal === 'abrir-caja' && (
-        <Modal title="Abrir caja" onClose={() => setModal(null)}>
-          <AperturaCajaForm onSave={b => abrirCaja.mutateAsync(b)} onCancel={() => setModal(null)} pygId={pygId} />
-        </Modal>
-      )}
-      {modal === 'ingreso' && (
-        <Modal title="Registrar ingreso" onClose={() => setModal(null)}>
-          <MovimientoForm tipo="INGRESO" onSave={b => registrarMov.mutateAsync(b)} onCancel={() => setModal(null)} pygId={pygId} />
-        </Modal>
-      )}
-      {modal === 'egreso' && (
-        <Modal title="Registrar egreso" onClose={() => setModal(null)}>
-          <MovimientoForm tipo="EGRESO" onSave={b => registrarMov.mutateAsync(b)} onCancel={() => setModal(null)} pygId={pygId} />
-        </Modal>
-      )}
-      {modal === 'cobro' && (
-        <Modal title="Cobrar factura" onClose={() => setModal(null)}>
-          <CobrarFacturaForm onSave={b => cobrarFactura.mutateAsync(b)} onCancel={() => setModal(null)} />
-        </Modal>
-      )}
+      <Modal open={modal === 'abrir-caja'} title="Abrir caja" onClose={() => setModal(null)}>
+        <AperturaCajaForm onSave={b => abrirCaja.mutateAsync(b)} onCancel={() => setModal(null)} pygId={pygId} />
+      </Modal>
+
+      <Modal open={modal === 'ingreso'} title="Registrar ingreso" onClose={() => setModal(null)}>
+        <MovimientoForm tipo="INGRESO" onSave={b => registrarMov.mutateAsync(b)} onCancel={() => setModal(null)} pygId={pygId} />
+      </Modal>
+
+      <Modal open={modal === 'egreso'} title="Registrar egreso" onClose={() => setModal(null)}>
+        <MovimientoForm tipo="EGRESO" onSave={b => registrarMov.mutateAsync(b)} onCancel={() => setModal(null)} pygId={pygId} />
+      </Modal>
+
+      <Modal open={modal === 'cobro'} title="Cobrar factura" onClose={() => setModal(null)}>
+        <CobrarFacturaForm onSave={b => cobrarFactura.mutateAsync(b)} onCancel={() => setModal(null)} />
+      </Modal>
     </div>
   )
 }
