@@ -46,7 +46,7 @@ function ModalAbrirCaja({ cajas, moneda_id, onClose, onAbrir, loading }) {
   const [monto, setMonto] = useState('0')
 
   return (
-    <Modal title="Abrir Sesión de Caja" onClose={onClose}>
+    <Modal open title="Abrir Sesión de Caja" onClose={onClose}>
       <div className="space-y-4">
         <div>
           <label className="text-sm text-slate-400 block mb-1">Caja</label>
@@ -89,7 +89,7 @@ function ModalCerrarCaja({ apertura, onClose, onCerrar, loading }) {
   const diferencia = (Number(contado) || 0) - Number(esperado)
 
   return (
-    <Modal title="Cerrar Caja — Arqueo" onClose={onClose}>
+    <Modal open title="Cerrar Caja — Arqueo" onClose={onClose}>
       <div className="space-y-4">
         <div className="p-3 rounded-lg bg-slate-800/50 border border-slate-700 space-y-2 text-sm">
           <div className="flex justify-between">
@@ -136,7 +136,7 @@ function ModalCerrarCaja({ apertura, onClose, onCerrar, loading }) {
 // ─── Modal: Ticket emitido ───────────────────────────────────────────────────
 function ModalTicket({ doc, onClose }) {
   return (
-    <Modal title="Venta Registrada" onClose={onClose}>
+    <Modal open title="Venta Registrada" onClose={onClose}>
       <div className="space-y-4 text-center">
         <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-500/10 border border-green-500/30 mx-auto">
           <CheckCircle className="w-8 h-8 text-green-400" />
@@ -212,7 +212,7 @@ function BuscadorProductos({ onSelect }) {
 
   const { data, isFetching } = useQuery({
     queryKey: ['pos-productos', query],
-    queryFn: () => api.get('/products/productos/', {
+    queryFn: () => api.get('/productos/', {
       params: { search: query, active: true, page_size: 20 }
     }).then(r => r.data.results ?? r.data),
     enabled: query.length >= 2,
@@ -318,12 +318,12 @@ export default function PuntoVentaPage() {
 
   const { data: pvList = [] } = useQuery({
     queryKey: ['puntos-venta'],
-    queryFn: () => api.get('/companies/puntos-venta/').then(r => r.data.results ?? r.data),
+    queryFn: () => api.get('/puntos-venta/').then(r => r.data.results ?? r.data),
   })
 
   const { data: depositos = [] } = useQuery({
     queryKey: ['depositos'],
-    queryFn: () => api.get('/companies/depositos/').then(r => r.data.results ?? r.data),
+    queryFn: () => api.get('/depositos/').then(r => r.data.results ?? r.data),
   })
 
   const { data: monedas = [] } = useQuery({
@@ -333,7 +333,7 @@ export default function PuntoVentaPage() {
 
   const { data: clientes = [] } = useQuery({
     queryKey: ['clientes-pos'],
-    queryFn: () => api.get('/customers/clientes/', { params: { page_size: 200 } }).then(r => r.data.results ?? r.data),
+    queryFn: () => api.get('/clientes/', { params: { page_size: 200 } }).then(r => r.data.results ?? r.data),
   })
 
   const apertura = aperturas[0] ?? null
