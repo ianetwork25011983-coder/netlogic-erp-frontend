@@ -399,7 +399,7 @@ export default function PuntoVentaPage() {
 
       const payload = {
         empresa: pvActivo.sucursal
-          ? (await api.get(`/companies/sucursales/${pvActivo.sucursal}/`).then(r => r.data.empresa))
+          ? (await api.get(`/sucursales/${pvActivo.sucursal}/`).then(r => r.data.empresa))
           : undefined,
         sucursal: pvActivo.sucursal,
         punto_venta: pvActivo.id,
