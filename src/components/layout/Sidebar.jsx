@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 import {
   LayoutDashboard, Package, Warehouse, ShoppingCart, FileText,
   Users, Building2, DollarSign, Truck, BarChart3, Brain,
-  ShoppingBag, Zap, LogOut, ChevronRight
+  ShoppingBag, Zap, LogOut, ChevronRight, Receipt
 } from 'lucide-react'
 import { useAuthStore } from '@/store/auth'
 import { useNavigate } from 'react-router-dom'
@@ -14,6 +14,7 @@ const navItems = [
   { label: 'Inventario', icon: Warehouse, to: '/inventario' },
   { label: 'Compras', icon: ShoppingCart, to: '/compras' },
   { label: 'Pedidos de Venta', icon: ShoppingBag, to: '/pedidos' },
+  { label: 'Punto de Venta', icon: Receipt, to: '/pos' },
   { label: 'Facturación', icon: FileText, to: '/facturacion' },
   { label: 'Clientes', icon: Users, to: '/clientes' },
   { label: 'CRM', icon: Building2, to: '/crm' },

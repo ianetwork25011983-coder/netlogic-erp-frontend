@@ -14,6 +14,7 @@ import LogisticaPage from '@/pages/LogisticaPage'
 import ReportesPage from '@/pages/ReportesPage'
 import CopilotoPage from '@/pages/CopilotoPage'
 import PedidosPage from '@/pages/PedidosPage'
+import PuntoVentaPage from '@/pages/PuntoVentaPage'
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 30_000, retry: 1 } },
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="/inventario" element={<InventarioPage />} />
             <Route path="/compras" element={<ComprasPage />} />
             <Route path="/pedidos" element={<PedidosPage />} />
+            <Route path="/pos" element={<PuntoVentaPage />} />
             <Route path="/facturacion" element={<FacturacionPage />} />
             <Route path="/clientes" element={<ClientesPage />} />
             <Route path="/crm" element={<CRMPage />} />
